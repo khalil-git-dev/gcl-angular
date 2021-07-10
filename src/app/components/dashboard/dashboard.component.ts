@@ -2,7 +2,6 @@ import { EvenmentService } from './../../services/evenment.service';
 import { FormateurService } from './../../services/formateur.service';
 import { ClasseService } from './../../services/classe.service';
 import { Component, OnInit } from '@angular/core';
-import { HttpHeaders } from '@angular/common/http';
 import { CoursService } from 'src/app/services/cours.service';
 
 @Component({
@@ -20,26 +19,17 @@ export class DashboardComponent implements OnInit {
     private coursService: CoursService, private eventService: EvenmentService) { }
 
   ngOnInit() {
-      var currentUser = JSON.parse(localStorage.getItem('currentUser'));
-    
-      const headers = new HttpHeaders({
-        'Content-type': 'application/json; ' + 'charset=utf-8',
-        'Authorization': 'Bearer ' + currentUser.token,
-        });
-
       // Recuperation de la progression des cours 
       this.coursService.getProgressCours().subscribe(
         data => {
           this.cours = data;
           
           let pourcentage = [];
-          // this.pourcentage = (this.cours.totalHoraire/this.cours.quantumHoraire) * 100;
           for (const [key, value] of Object.entries(data)) {
             pourcentage[key] = ((value.totalHoraire / value.quantumHoraire) * 100).toFixed(2) ;
           }
           this.pourcentages = pourcentage;
           
-          // console.log(pourcentage);
           console.log(data);
         }
       );
