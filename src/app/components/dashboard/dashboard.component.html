@@ -271,23 +271,24 @@
                                 </div>
                                 <!-- card-header -->
                                 <div class="card-body pd-t-25">
-
                                     <div *ngFor="let cour of cours; let i = index" [attr.data-index]="i">
-                                        <div class="avatar"><img src="https://via.placeholder.com/500" class="rounded-circle" alt=""></div>
-                                        <div class="media-body mg-l-15">
-                                            <h6 class="tx-13 mg-b-2">6eme C</h6>
+                                        <div *ngFor="let cr of cour.disciplines; let j = index" [attr.data-index]="j">
+                                            <div class="avatar"><img src="https://via.placeholder.com/500" class="rounded-circle" alt=""></div>
+                                            <div class="media-body mg-l-15">
+                                                <h6 class="tx-13 mg-b-2">{{ cour.classe }}</h6>
 
-                                            <h6 class="tx-13 mg-b-2">{{ cour.discipline }}</h6>
-                                            <p class="tx-color-03 tx-12 mg-b-10">{{ pourcentages[i] }} %</p>
-                                            <div class="progress ht-4 op-7 mg-b-5">
-                                                <div class="progress-bar wd-85p" role="pro  gressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 60%;"></div>
+                                                <h6 class="tx-13 mg-b-2">{{ cr.discipline }}</h6>
+                                                <p class="tx-color-03 tx-12 mg-b-10">{{ cr.pourcentage.toFixed(2) }} %</p>
+                                                <div class="progress ht-4 op-7 mg-b-5">
+                                                    <div class="progress-bar wd-85p" role="pro  gressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 60%;"></div>
+                                                </div>
+                                                <!-- <div class="d-flex justify-content-between tx-12">
+                                                    <span class="tx-color-03">Executive Level</span>
+                                                    <strong class="tx-medium">12,312 points</strong>
+                                                </div> -->
                                             </div>
-                                            <!-- <div class="d-flex justify-content-between tx-12">
-                                                <span class="tx-color-03">Executive Level</span>
-                                                <strong class="tx-medium">12,312 points</strong>
-                                            </div> -->
+                                            <!-- media-body -->
                                         </div>
-                                        <!-- media-body -->
                                     </div>
                                    
                                     <div class="card-footer text-center tx-13">

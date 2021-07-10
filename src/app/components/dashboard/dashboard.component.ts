@@ -20,8 +20,8 @@ export class DashboardComponent implements OnInit {
     private coursService: CoursService, private eventService: EvenmentService) { }
 
   ngOnInit() {
+      // Informations calendrier
       moment.locale('fr');
-      console.log(moment.locale());
       this.jourHeure = moment(new Date()).format("dddd, H:mm:ss");
       this.dateJour = moment(new Date()).format("Do MMMM YYYY");
 
@@ -32,14 +32,16 @@ export class DashboardComponent implements OnInit {
           
           let pourcentage = [];
           for (const [key, value] of Object.entries(data)) {
-            pourcentage[key] = ((value.totalHoraire / value.quantumHoraire) * 100).toFixed(2) ;
+            for (const [key, val] of Object.entries(value.disciplines)) {
+              pourcentage[key] = ((val[key].totalHoraire / val[key].quantumHoraire) * 100).toFixed(2) ;
+            }
           }
           this.pourcentages = pourcentage;
           
           console.log(data);
         }
       );
-
+      
       // Liste des classes 
       this.classService.getListeClasses().subscribe(
         data => {
