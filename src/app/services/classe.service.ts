@@ -10,8 +10,8 @@ export class ClasseService {
 
   constructor(private http: HttpClient) { }
   
-  getListeClasses(headers) {
-    return this.http.get(`${environment.apiUrl}/api/list_class`, {headers: headers});
+  getListeClasses() {
+    return this.http.get(`${environment.apiUrl}/api/list_class`);
   }
 
 

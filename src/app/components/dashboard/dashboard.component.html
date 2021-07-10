@@ -262,7 +262,6 @@
                             </div>
                             <!-- card -->
                         </div>
-
                         <!-- BLOCK 2 -->
 
                         <div class="col-md-4 col-xl-4 mg-t-10">
@@ -325,58 +324,6 @@
                                         </div>
                                     </li>
 
-                                    <!-- <li class="list-group-item d-flex pd-x-20">
-                                        <div class="avatar"><img src="https://via.placeholder.com/500" class="rounded-circle" alt=""></div>
-                                        <div class="pd-l-10">
-                                            <p class="tx-medium mg-b-0">Rahmane Sow</p>
-                                            <small class="tx-12 tx-color-03 mg-b-0">Professeur Math</small>
-                                        </div>
-                                        <div class="mg-l-auto d-flex align-self-center">
-                                            <nav class="nav nav-icon-only">
-                                                <a href="" class="nav-link d-none d-sm-block"><i data-feather="user"></i></a>
-                                                <a href="" class="nav-link d-sm-none"><i data-feather="more-vertical"></i></a>
-                                            </nav>
-                                        </div>
-                                    </li>
-                                    <li class="list-group-item d-flex pd-x-20">
-                                        <div class="avatar"><img src="https://via.placeholder.com/500" class="rounded-circle" alt=""></div>
-                                        <div class="pd-l-10">
-                                            <p class="tx-medium mg-b-0">Marianne Fall</p>
-                                            <small class="tx-12 tx-color-03 mg-b-0">Professeur Histoire</small>
-                                        </div>
-                                        <div class="mg-l-auto d-flex align-self-center">
-                                            <nav class="nav nav-icon-only">
-                                                <a href="" class="nav-link d-none d-sm-block"><i data-feather="user"></i></a>
-                                                <a href="" class="nav-link d-sm-none"><i data-feather="more-vertical"></i></a>
-                                            </nav>
-                                        </div>
-                                    </li>
-                                    <li class="list-group-item d-flex pd-x-20">
-                                        <div class="avatar"><span class="avatar-initial rounded-circle bg-indigo op-5">o</span></div>
-                                        <div class="pd-l-10">
-                                            <p class="tx-medium mg-b-0">Andre Dionou</p>
-                                            <small class="tx-12 tx-color-03 mg-b-0">Professeur Anglais</small>
-                                        </div>
-                                        <div class="mg-l-auto d-flex align-self-center">
-                                            <nav class="nav nav-icon-only">
-                                                <a href="" class="nav-link d-none d-sm-block"><i data-feather="user"></i></a>
-                                                <a href="" class="nav-link d-sm-none"><i data-feather="more-vertical"></i></a>
-                                            </nav>
-                                        </div>
-                                    </li>
-                                    <li class="list-group-item d-flex pd-x-20">
-                                        <div class="avatar"><span class="avatar-initial rounded-circle bg-primary op-5">k</span></div>
-                                        <div class="pd-l-10">
-                                            <p class="tx-medium mg-b-0">Cathy Fall</p>
-                                            <small class="tx-12 tx-color-03 mg-b-0">Professeur PC</small>
-                                        </div>
-                                        <div class="mg-l-auto d-flex align-self-center">
-                                            <nav class="nav nav-icon-only">
-                                                <a href="" class="nav-link d-none d-sm-block"><i data-feather="user"></i></a>
-                                                <a href="" class="nav-link d-sm-none"><i data-feather="more-vertical"></i></a>
-                                            </nav>
-                                        </div>
-                                    </li> -->
                                 </ul>
                                 <div class="card-footer text-center tx-13">
                                     <a href="" class="link-03">Voir plus <i class="icon ion-md-arrow-down mg-l-5"></i></a>
@@ -409,12 +356,14 @@
                                 </div>
                                 <div class="calendar_events">
                                     <p class="ce_title">Evenements à venir</p>
-                                    <div class="event_item">
+
+                                    <div *ngFor="let event of evenements" class="event_item">
                                         <div class="ei_Dot dot_active"></div>
-                                        <div class="ei_Title">10:30 </div>
-                                        <div class="ei_Copy">Reunion avec les professeurs</div>
+                                        <div class="ei_Title">{{ event.dateDebut }} </div>
+                                        <div class="ei_Copy">{{ event.libelleEvent }}</div>
                                     </div>
-                                    <div class="event_item">
+
+                                    <!-- <div class="event_item">
                                         <div class="ei_Dot bg-orange"></div>
                                         <div class="ei_Title">12:00</div>
                                         <div class="ei_Copy">Reunion avec les parents</div>
@@ -438,7 +387,7 @@
                                         <div class="ei_Dot bg-primary"></div>
                                         <div class="ei_Title">14:30</div>
                                         <div class="ei_Copy">Journée culturelle</div>
-                                    </div>
+                                    </div> -->
                                     <button class="btn btn-sm btn-primary btn-uppercase pd-x-90">Voir Tout</button>
 
                                 </div>

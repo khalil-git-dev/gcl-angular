@@ -10,16 +10,16 @@ export class CoursService {
 
   constructor(private http: HttpClient) { }
   
-  getRequestHeader(){
-    let headers = new HttpHeaders({
-      'Content-type': 'application/json; ' + 'charset=utf-8',
-      'Authorization': 'Bearer ' + JSON.parse(localStorage.getItem('currentUser')),
-      });
-    return headers;
-  }
+  // getRequestHeader(){
+  //   let headers = new HttpHeaders({
+  //     'Content-type': 'application/json; ' + 'charset=utf-8',
+  //     'Authorization': 'Bearer ' + JSON.parse(localStorage.getItem('currentUser')),
+  //     });
+  //   return headers;
+  // }
   
-  getProgressCours(headers) {
-    return this.http.get(`${environment.apiUrl}/api/getProgressCours`, {headers: headers});
+  getProgressCours() {
+    return this.http.get(`${environment.apiUrl}/api/getProgressCours`);
   }
 
   

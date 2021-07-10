@@ -1,3 +1,4 @@
+import { EvenmentService } from './../../services/evenment.service';
 import { FormateurService } from './../../services/formateur.service';
 import { ClasseService } from './../../services/classe.service';
 import { Component, OnInit } from '@angular/core';
@@ -14,7 +15,9 @@ export class DashboardComponent implements OnInit {
   classes: any;
   pourcentages: any;
   formateurs: any;
-  constructor(private formateurService: FormateurService, private classService: ClasseService, private coursService: CoursService) { }
+  evenements: any;
+  constructor(private formateurService: FormateurService,private classService: ClasseService,
+    private coursService: CoursService, private eventService: EvenmentService) { }
 
   ngOnInit() {
       var currentUser = JSON.parse(localStorage.getItem('currentUser'));
@@ -25,7 +28,7 @@ export class DashboardComponent implements OnInit {
         });
 
       // Recuperation de la progression des cours 
-      this.coursService.getProgressCours(headers).subscribe(
+      this.coursService.getProgressCours().subscribe(
         data => {
           this.cours = data;
           
@@ -42,7 +45,7 @@ export class DashboardComponent implements OnInit {
       );
 
       // Liste des classes 
-      this.classService.getListeClasses(headers).subscribe(
+      this.classService.getListeClasses().subscribe(
         data => {
           this.classes = data;
           console.log(this.classes);
@@ -50,9 +53,20 @@ export class DashboardComponent implements OnInit {
       );    
 
       // Liste des formateurs 
-      this.formateurService.getListeFormateurs(headers).subscribe(
+      this.formateurService.getListeFormateurs().subscribe(
         data => {
           this.formateurs = data;
+          console.log(data);
+        },
+        error =>{
+          console.log(error)
+        }
+      );
+
+      // Les evenements a venir
+      this.eventService.getEvenementFuture().subscribe(
+        data => {
+          this.evenements = data;
           console.log(data);
         },
         error =>{
