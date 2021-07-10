@@ -3,6 +3,8 @@ import { FormateurService } from './../../services/formateur.service';
 import { ClasseService } from './../../services/classe.service';
 import { Component, OnInit } from '@angular/core';
 import { CoursService } from 'src/app/services/cours.service';
+import * as moment from 'moment';
+import 'moment/locale/pt-br';
 
 @Component({
   selector: 'app-dashboard',
@@ -10,15 +12,19 @@ import { CoursService } from 'src/app/services/cours.service';
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
-  cours: any;
-  classes: any;
-  pourcentages: any;
-  formateurs: any;
-  evenements: any;
+  cours: any; classes: any; pourcentages: any;
+  formateurs: any; evenements: any; 
+  jourHeure: any; dateJour: any;
+
   constructor(private formateurService: FormateurService,private classService: ClasseService,
     private coursService: CoursService, private eventService: EvenmentService) { }
 
   ngOnInit() {
+      moment.locale('fr');
+      console.log(moment.locale());
+      this.jourHeure = moment(new Date()).format("dddd, H:mm:ss");
+      this.dateJour = moment(new Date()).format("Do MMMM YYYY");
+
       // Recuperation de la progression des cours 
       this.coursService.getProgressCours().subscribe(
         data => {
@@ -63,6 +69,7 @@ export class DashboardComponent implements OnInit {
           console.log(error)
         }
       );
+
   }
 
 
