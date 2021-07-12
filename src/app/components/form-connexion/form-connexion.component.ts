@@ -36,8 +36,6 @@ export class FormConnexionComponent implements OnInit {
       error => {
         console.log('error de connexion ' + error);
         this.errors = error.error;
-        // console.log("this.errors.statusText");
-        // console.log(this.errors.error.message);
       }
     );
   }

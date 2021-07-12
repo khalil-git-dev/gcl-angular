@@ -1,6 +1,6 @@
 
   <!-- Appel du Sidebar -->
-  <!-- <app-sidebar></app-sidebar> -->
+  <app-sidebar></app-sidebar>
   <!-- Appel du Navbar -->
   <!-- <app-navbar></app-navbar> -->
 
@@ -23,9 +23,9 @@
             <li class="nav-label mg-t-25">La Gestion</li>
             <li class="nav-item active"><a href="dashboard-two.html" class="nav-link"><i data-feather="file-text"></i> <span>Gestion des classes</span></a></li>
             <li class="nav-item with-sub">
-                <a href="" class="nav-link"><i data-feather="user"></i> <span>Etudiants </span></a>
+                <a href="" class="nav-link"><i data-feather="user"></i> <span>Eleves </span></a>
                 <ul>
-                    <li><a href="#">Liste des etudiants</a></li>
+                    <li><a [routerLink]="['/list-eleve']" routerLinkActive="router-link-active" >Liste des éleves</a></li>
                     <li><a href="#">Gestion des parents</a></li>
                 </ul>
             </li>

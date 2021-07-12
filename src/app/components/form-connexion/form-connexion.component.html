@@ -19,7 +19,7 @@
                     </div> -->
                     <h3>Se Connecter </h3>
                     <p>Bienvenue sur Votre plateforme de Gestion des Collèges et Lycée</p>
-                    <label for="" *ngIf="errors"> {{ errors.message }}</label>
+                    <div *ngIf="errors" class="p-0 mb-2 pl-2 bg-danger text-white">{{ errors.message }}</div>
                     <form [formGroup]="formConnexion" (ngSubmit)="formConnexion.valid && onConnexion()">
 
                         <input class="form-control" form="email" formControlName="username"  placeholder="Identification" required>

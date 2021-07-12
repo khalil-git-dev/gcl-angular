@@ -11,6 +11,8 @@ import { ConnexionComponent } from './pages/connexion/connexion.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { ListEleveComponent } from './components/list-eleve/list-eleve.component';
+import { DetailClasseComponent } from './components/detail-classe/detail-classe.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,9 @@ import { NavbarComponent } from './navbar/navbar.component';
     FormConnexionComponent,
     ConnexionComponent,
     SidebarComponent,
-    NavbarComponent
+    NavbarComponent,
+    ListEleveComponent,
+    DetailClasseComponent
   ],
   imports: [
     BrowserModule,

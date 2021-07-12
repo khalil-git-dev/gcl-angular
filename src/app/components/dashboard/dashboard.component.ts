@@ -16,7 +16,7 @@ export class DashboardComponent implements OnInit {
   formateurs: any; evenements: any; 
   jourHeure: any; dateJour: any;
 
-  constructor(private formateurService: FormateurService,private classService: ClasseService,
+  constructor(private formateurService: FormateurService, private classService: ClasseService,
     private coursService: CoursService, private eventService: EvenmentService) { }
 
   ngOnInit() {
