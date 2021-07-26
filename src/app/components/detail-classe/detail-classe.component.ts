@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { ClasseService } from './../../services/classe.service';
 import { Component, OnInit } from '@angular/core';
 
@@ -8,16 +9,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DetailClasseComponent implements OnInit {
   datas: any;
-  constructor(private classeService: ClasseService) { }
+  constructor(private classeService: ClasseService, private router: Router) { }
 
   ngOnInit() {
     //
     
-    let idClasse =1;
+    let idClasse = window.localStorage.getItem("detailClasseId");
+    if(!idClasse) {
+      alert("Invalide action.")
+      this.router.navigate(['list-classe']);
+      return;
+    }
     this.classeService.getAllInfosByClasse(idClasse).subscribe(
       data => {
         this.datas = data;
-        // console.log(this.datas);
       }
     ); 
   }

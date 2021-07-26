@@ -1,0 +1,73 @@
+
+        <div class="content-body">
+            <div class="container pd-x-0">
+                <div class="row row-xs">
+                    <div class="col-xl-12 col-lg-12 col-md-12">
+                        <!-- <div class="row row-xs"> -->
+                        <!-- card-header -->
+                        <div class="d-sm-flex align-items-center justify-content-between mg-b-20 mg-lg-b-25 mg-xl-b-30">
+                            <div>
+                                <nav aria-label="breadcrumb">
+                                    <ol class="breadcrumb breadcrumb-style1 mg-b-10">
+                                        <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
+                                        <li class="breadcrumb-item active" aria-current="page">Liste des utilisateurs</li>
+                                    </ol>
+                                </nav>
+                                <h4 class="mg-b-0 tx-spacing--1">Utilisateurs</h4>
+                            </div>
+                            <div class="d-none d-md-block">
+                                <button class="btn btn-sm pd-x-15 btn-primary btn-uppercase mg-l-5"><i data-feather="plus-circle" class="wd-10 mg-r-5"></i> Ajouter un utilisateur</button>
+                            </div>
+                        </div>
+                        <!-- </div> -->
+
+                        <div class="row row-xs">
+                            <!-- TABLEAU-->
+
+                            <div class="pd-t-30">
+                                <table id="tableui" class="ui celled table" style="width:100%">
+                                    <thead>
+                                        <tr>
+                                            <th>N°</th>
+                                            <th>Prenom</th>
+                                            <th>Nom</th>
+                                            <th>Email</th>
+                                            <th>Fonction</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr *ngFor="let user of users; let i = index">
+                                            <td>{{ i+1 }}</td>
+                                            <td>{{ user.prenom }}</td>
+                                            <td>{{ user.nom }}</td>
+                                            <td>{{ user.email }}</td>
+                                            <td>{{ user.type }}</td>
+                                            <td>
+                                                <div class="dropdown dropright dropdown-link">
+                                                    <span type="button" id="dropleftMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                <!-- <i data-feather="more-vertical"></i> -->
+                                                <mat-icon aria-hidden="false" aria-label="Example more vert icon ">more_vert</mat-icon>
+                                                </span>
+                                                    <div class="dropdown-menu" aria-labelledby="dropleftMenuButton">
+                                                        <ul>
+                                                            <li><a href="#">Voir plus</a></li>
+                                                            <li><a href="#">Modifier</a></li>
+                                                            <li>
+                                                                <a href="#"></a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+
+                                </table>
+                            </div>
+                        </div>
+                        <!-- END card -->
+                    </div>
+
+                </div>
+                <!-- container -->

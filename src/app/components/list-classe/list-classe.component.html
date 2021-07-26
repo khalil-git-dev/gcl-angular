@@ -1,0 +1,72 @@
+
+<div class="content-body">
+    <div class="container pd-x-0">
+        <div class="row row-xs">
+            <div class="col-xl-12 col-lg-12 col-md-12">
+                <!-- <div class="row row-xs"> -->
+                <!-- card-header -->
+                <div class="d-sm-flex align-items-center justify-content-between mg-b-20 mg-lg-b-25 mg-xl-b-30">
+                    <div>
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb breadcrumb-style1 mg-b-10">
+                                <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">Liste des classes</li>
+                            </ol>
+                        </nav>
+                        <h4 class="mg-b-0 tx-spacing--1">Liste des classes</h4>
+                    </div>
+                    <div class="d-none d-md-block">
+                        <button class="btn btn-sm pd-x-15 btn-primary btn-uppercase mg-l-5"><i data-feather="plus-circle" class="wd-10 mg-r-5"></i> Ajouter une classe</button>
+                    </div>
+                </div>
+                <!-- </div> -->
+
+                <div class="row row-xs">
+                    <!-- TABLEAU-->
+                    <div class="pd-t-30">
+                        <table id="tableui" class="ui celled table" style="width:100%">
+                            <thead>
+                                <tr>
+                                    <th>N°</th>
+                                    <th>Libelle</th>
+                                    <th>Série</th>
+                                    <th>Description</th>
+                                    <th>Nobre d'eleve maximal</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let classe of classes; let i = index" >
+                                    <td>{{ i+1 }}</td>
+                                    <td>{{ classe.libelleCl }}</td>
+                                    <td>{{ classe.serie }}</td>
+                                    <td>{{ classe.descriptionCl }}</td>
+                                    <td>{{ classe.nbMaxEleve }}</td>
+                                    <td>
+                                        <div class="dropdown dropright dropdown-link">
+                                            <span type="button" id="dropleftMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                <mat-icon aria-hidden="false" aria-label="Example more vert icon ">more_vert</mat-icon>
+                                            </span>
+                                            <div class="dropdown-menu" aria-labelledby="dropleftMenuButton">
+                                                <ul>
+                                                    <li><a (click)="allInfosClasse(classe)" >Voir plus</a></li>
+                                                    <li><a href="#">Modifier</a></li>
+                                                    <li>
+                                                        <a href="#"></a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                
+                            </tbody>
+
+                        </table>
+                    </div>
+                </div>
+                <!-- END card -->
+            </div>
+        </div>
+    </div>
+        <!-- container -->

@@ -19,4 +19,13 @@ export class ClasseService {
     return this.http.get(`${environment.apiUrl}/api/getAllInfosByClasse/` +idClasse);
   }
 
+  // Liste des classes
+  // getListClasses() {
+  //   return this.http.get(`${environment.apiUrl}/api/list_class`);
+  // }
+  // Listedes classe d'un formateur
+  listClassesByFormateur(idFormateur) {
+    return this.http.get(`${environment.apiUrl}/api/listClassesByFormateur/`+ idFormateur);
+  }
+
 }

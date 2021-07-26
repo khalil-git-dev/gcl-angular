@@ -106,12 +106,17 @@
                                     <td>
                                         <div class="dropdown dropright dropdown-link">
                                             <span type="button" id="dropleftMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            <i data-feather="more-vertical"></i>
+                                                <!-- <i data-feather="more-vertical"></i> -->
+                                                <mat-icon aria-hidden="false" aria-label="Example more vert icon ">more_vert</mat-icon>
                                             </span>
                                             <div class="dropdown-menu" aria-labelledby="dropleftMenuButton">
                                                 <ul>
                                                     <li><a href="#">Voir plus</a></li>
-                                                    <li><a href="#">Modifier</a></li>
+                                                    <li><a href="/edit-eleve/{{ eleve.id }}">Modifier</a></li>
+                                                    <li>
+                                                        <a *ngIf="eleve.etat" (click)="changeStatus(eleve.id)">Desactiver</a>
+                                                        <a *ngIf="!eleve.etat" (click)="changeStatus(eleve.id)">Activer</a>
+                                                    </li>
                                                     <li>
                                                         <a href="#"></a>
                                                     </li>

@@ -13,7 +13,14 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { ListEleveComponent } from './components/list-eleve/list-eleve.component';
 import { DetailClasseComponent } from './components/detail-classe/detail-classe.component';
-
+import { ListClasseComponent } from './components/list-classe/list-classe.component';
+import { EditClasseComponent } from './components/edit-classe/edit-classe.component';
+import { ListUserComponent } from './components/list-user/list-user.component';
+import { ListNoteComponent } from './components/list-note/list-note.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+// import { ProgressSpinnerOverviewComponent } from './components/progress-spinner-overview/progress-spinner-overview.component';
+import {MatIconModule} from '@angular/material/icon';
+import { ModifEleveComponent } from './components/modif-eleve/modif-eleve.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,14 +30,23 @@ import { DetailClasseComponent } from './components/detail-classe/detail-classe.
     SidebarComponent,
     NavbarComponent,
     ListEleveComponent,
-    DetailClasseComponent
+    DetailClasseComponent,
+    ListClasseComponent,
+    EditClasseComponent,
+    ListUserComponent,
+    ListNoteComponent,
+    ModifEleveComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    MatIconModule
+    // ProgressSpinnerOverviewComponent
+    
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptorService, multi: true }

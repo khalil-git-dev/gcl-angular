@@ -13,4 +13,17 @@ export class EleveService {
     return this.http.get(`${environment.apiUrl}/api/listAllEleves`);
   }
 
+  getEleve(idEleve){
+    return this.http.get(`${environment.apiUrl}/api/getEleve/`+ idEleve);
+  }
+
+  upDateEleve(id, donnees){
+    return this.http.put(`${environment.apiUrl}/api/upDateEleve/`+ id, donnees);   
+  }
+
+  changeStatus(id){
+    return this.http.get(`${environment.apiUrl}/api/changeStatus/`+ id);   
+  }
+
+
 }

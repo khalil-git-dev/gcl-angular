@@ -1,0 +1,196 @@
+<!-- <app-sidebar></app-sidebar> -->
+
+<div class="content ht-100v pd-0">
+
+    <div class="content-body">
+        <div class="container pd-x-0">
+            <div class="row row-xs">
+                <div class="col-xl-12 col-lg-12 col-md-12">
+                    <!-- card-header -->
+                    <div class="d-sm-flex align-items-center justify-content-between mg-b-20 mg-lg-b-25 mg-xl-b-30">
+                        <div>
+                            <nav aria-label="breadcrumb">
+                                <ol class="breadcrumb breadcrumb-style1 mg-b-10">
+                                    <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">Formulaire</li>
+                                </ol>
+                            </nav>
+                            <h4 class="mg-b-0 tx-spacing--1">Modification d'un éleve</h4>
+                        </div>
+                    </div>
+
+                    <div class="mg-l-40">
+                        <form [formGroup]="formUpdateEleve" (ngSubmit)="formUpdateEleve.valid && upDateEleve()">
+                            <div class="form-row">
+                                <div class="form-group col-md-4">
+                                    <label for="inputPassword4">Marticule</label>
+                                    <input type="text" readonly="true" formControlName="matricule" [(ngModel)]="currentEleve.matricule" class="form-control" id="inputPassword4">
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <label for="inputEmail4">Prénom</label>
+                                    <input type="text" formControlName="prenom" [(ngModel)]="currentEleve.prenom" class="form-control" id="inputEmail4" placeholder="Prénom">
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <label for="inputPassword4">Nom</label>
+                                    <input type="text" formControlName="nom" [(ngModel)]="currentEleve.nom" class="form-control" id="inputPassword4" placeholder="Nom">
+                                </div>
+                                
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group col-md-4">
+                                    <label for="inputEmail4">Date de naissance</label>
+                                    <input type="text" formControlName="dateNaissance" [(ngModel)]="currentEleve.dateNaissance" class="form-control" id="inputEmail4" placeholder="Date de naissance">
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <label for="inputPassword4">Lieu de naissance</label>
+                                    <input type="text" formControlName="lieuNaissance" [(ngModel)]="currentEleve.lieuNaissance" class="form-control" id="inputPassword4" placeholder="Lieu de naissance">
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <label for="inputPassword4">Téléphone</label>
+                                    <input type="text" formControlName="telEleve" [(ngModel)]="currentEleve.telEleve" class="form-control" id="inputPassword4" placeholder="Numéro de téléphone">
+                                </div>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group col-md-4">
+                                    <label for="inputPassword4">Sexe</label>
+                                    <div>
+                                        <div class="custom-control custom-radio">
+                                          <input type="radio" id="customRadio1" value="Homme" name="sexe" formControlName="sexe" (change)="changeGender($event)" class="custom-control-input" checked>
+                                          <label class="custom-control-label" for="customRadio1">Masculin</label>
+                                        </div>
+                                        <div class="custom-control custom-radio">
+                                          <input type="radio" id="customRadio2" value="Femme" name="sexe" formControlName="sexe" (change)="changeGender($event)" class="custom-control-input">
+                                          <label class="custom-control-label" for="customRadio2">Feminin</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <label>Classe</label>
+                                    <select formControlName="classe" class="custom-select">
+                                        <option value="{{ currentEleve.idClasse }}" [(ngModel)]="currentEleve.classe">{{ currentEleve.classe }}</option>
+                                        <option value="{{ classe.id }}" *ngFor="let classe of classes">{{ classe.libelleCl }}</option>
+                                    </select>
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <label>Série</label>
+                                    <select formControlName="serie" class="custom-select">
+                                        <option value="{{ serie.id }}" *ngFor="let serie of series">{{ serie.libelleSer }}</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group col-md-4">
+                                    <label for="inputEmail4">Nom complet père</label>
+                                    <input type="text" formControlName="nomPere" [(ngModel)]="currentEleve.nomPere" class="form-control" id="inputEmail4" placeholder="Nom complet père">
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <label for="inputPassword4">Nom complet mère</label>
+                                    <input type="text" formControlName="nomMere" [(ngModel)]="currentEleve.nomMere" class="form-control" id="inputPassword4" placeholder="Nom complet mère">
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <label for="inputPassword4">Nom complet Tuteur</label>
+                                    <input type="text" formControlName="nomTuteur" [(ngModel)]="currentEleve.nomTuteur" class="form-control" id="inputPassword4" placeholder="Nom complet tuteur légale">
+                                </div>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group col-md-4">
+                                    <label for="inputEmail4">Téléphone père</label>
+                                    <input type="text" formControlName="telPere" [(ngModel)]="currentEleve.telPere" class="form-control" id="inputEmail4" placeholder="Téléphone père">
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <label for="inputPassword4">Téléphone mère</label>
+                                    <input type="text" formControlName="telMere" [(ngModel)]="currentEleve.telMere" class="form-control" id="inputPassword4" placeholder="Téléphone mère">
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <label for="inputPassword4">Téléphone Tuteur</label>
+                                    <input type="text" formControlName="telTuteur" [(ngModel)]="currentEleve.telTuteur" class="form-control" id="inputPassword4" placeholder="Téléphone tuteur légale">
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-4">
+                                    <label for="inputPassword4">Status</label>
+                                    <div>
+                                        <div class="custom-control custom-radio">
+                                          <input type="radio" id="customRadio3" value="Actif" name="etat" formControlName="etat" (change)="changeGender($event)" class="custom-control-input" checked>
+                                          <label class="custom-control-label" for="customRadio3">Actif</label>
+                                        </div>
+                                        <div class="custom-control custom-radio">
+                                          <input type="radio" id="customRadio4" value="Inactif" name="etat" formControlName="etat" (change)="changeGender($event)" class="custom-control-input">
+                                          <label class="custom-control-label" for="customRadio4">Inactif</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group col-md-4">
+                                    <label>Réligion</label>
+                                    <select formControlName="religion" class="custom-select">
+                                        <option value="Misulman">Misulman</option>
+                                        <option value="Chrétien">Chrétien</option>
+                                    </select>
+                                </div>
+                                <div class="form-group col-md-3">
+                                    <label>Nationalité</label>
+                                    <select formControlName="nationalite" class="custom-select">
+                                        <option value="Senegalais">Sénégalais</option>
+                                        <option value="Guinéen">Guinéen</option>
+                                        <option value="Bisau Guinéen">Bisau Guinéen</option>
+                                        <option value="Malien">Malien</option>
+                                        <option value="Autres">Autres</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-5">
+                                    <label for="inputAddress">Détail</label>
+                                    <textarea formControlName="detailEl" [(ngModel)]="currentEleve.detailEl" class="form-control" rows="2" placeholder="Textarea"> </textarea>
+                                </div>
+                                <div class="form-group col-md-5">
+                                    <label for="inputAddress">Address</label>
+                                    <textarea formControlName="adresse" [(ngModel)]="currentEleve.adresse" class="form-control" rows="2" placeholder="Textarea"></textarea>
+                                </div>
+                            </div>
+
+                            <div class="">
+                                <button type="submit" (click)="upDateEleve(currentEleve.id)" class="btn btn-sm pd-x-15 btn-white btn-uppercase mg-l-5">Modifier</button>
+                                <button type="cancel" class="btn pd-x-15 btn-white btn-uppercase mg-l-5">Annuler</button>
+                            </div>
+
+                        </form>
+                    </div>
+                    <!-- <div class="mg-l-140">
+                        <form id="form1" class="needs-validation was-validated" novalidate>
+                            <div class="row row-sm mg-b-10">
+                                <div class="col-sm-6">
+                                    <input type="text" class="form-control" placeholder="Valid state">
+                                    <div class="valid-feedback">Looks good!</div>
+                                </div>
+                                <div class="col-sm-6 mg-t-10 mg-sm-t-0">
+                                    <input type="text" class="form-control" placeholder="Invalid state" required>
+                                    <div class="invalid-feedback">This is required</div>
+                                </div>
+                                <div class="col-sm-6 mg-t-10">
+                                    <textarea class="form-control" rows="2" placeholder="Valid state"></textarea>
+                                    <div class="valid-feedback">Looks good!</div>
+                                </div>
+                                <div class="col-sm-6 mg-t-10">
+                                    <textarea class="form-control" rows="2" placeholder="Invalid state" required></textarea>
+                                    <div class="invalid-feedback">This is required</div>
+                                </div>
+                            </div>
+                        </form>
+                    </div> -->
+
+
+
+                    <!-- END card -->
+                </div>
+
+            </div>
+            <!-- container -->
+
+
+</div>

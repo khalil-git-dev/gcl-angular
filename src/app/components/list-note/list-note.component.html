@@ -1,0 +1,138 @@
+<!-- <mat-spinner *ngIf="loading"></mat-spinner> -->
+<app-sidebar></app-sidebar>
+<div class="content-body">
+    <div class="container pd-x-0">
+        <div class="row row-xs">
+            <div class="col-xl-12 col-lg-12 col-md-12">
+                <!-- <div class="row row-xs"> -->
+                <!-- card-header -->
+                <div class="d-sm-flex align-items-center justify-content-between mg-b-20 mg-lg-b-25 mg-xl-b-30">
+                    <div>
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb breadcrumb-style1 mg-b-10">
+                                <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">Gestion des notes</li>
+                            </ol>
+                        </nav>
+                        <h4 class="mg-b-0 tx-spacing--1">notes de la classe</h4>
+                    </div>
+                    <div class="d-none d-md-block">
+                        <button class="btn btn-sm pd-x-15 btn-primary btn-uppercase mg-l-5"><i data-feather="plus-circle" class="wd-10 mg-r-5"></i> Ajouter une note</button>
+                    </div>
+                </div>
+                <!-- </div> -->
+                <!-- Le select pour la semestre -->
+                <form [formGroup]="formVisualiserNote" (ngSubmit)="formVisualiserNote.valid && visualiserNote()">
+
+                    <div class="row ">
+                        <div class="col-lg-3 ">
+                            <label for=""> Classe : &nbsp;</label>
+                            <select formControlName="idClasse" id="">
+                                <option *ngFor="let classe of classes" value="{{ classe.id }}">{{ classe.libelleCl }}</option>
+                            </select>
+                        </div>
+
+                        <div class="col-lg-3 ">
+                            <label for=""> Discipline : &nbsp;</label>
+                            <select formControlName="idDiscipline" id="">
+                                <option  *ngFor="let discipline of disciplines" value="{{ discipline.id }}">{{ discipline.discipline }}</option>
+                            </select>
+                        </div>
+
+                        <div class="col-lg-3 ">
+                            <label for=""> Semestre :&nbsp; </label>
+                            <select formControlName="semestre" id="">
+                                <option value="1">Semestre 1</option>
+                                <option value="2">Semestre 2</option>
+                            </select>
+                        </div>
+                        <div class="col-lg-3 ">
+                            <button id="submit" (click)="visualiserNote()" type="submit" class="ibtn">Rechercher</button>
+                        </div>
+                    </div>
+                </form>
+
+                <div class="row row-xs">
+                    <!-- TABLEAU-->
+                    <div class="pd-t-30">
+                        <h3 *ngIf="formVisualiserNote.value.semestre == 1">Pour le discipline : {{ datas.discipline }} du première semestre</h3>
+                        <h3 *ngIf="formVisualiserNote.value.semestre == 2">Pour le discipline : {{ datas.discipline }} de la deuxième semestre</h3>
+                        <table id="tableui" class="ui celled table" style="width:100%">
+                            <thead>
+                                <tr>
+                                    <th>N°</th>
+                                    <th>Matricule</th>
+                                    <th>Nom</th>
+                                    <th>Prénom</th>
+                                    <th>Date de naissance</th>
+                                    <th>Note CC</th>
+                                    <th>Note Compostion</th>
+                                    <th>Note Semestre</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let noteEl of datas.eleves; let i = index">
+                                    <td>{{ i+1 }}</td>
+                                    <td>{{ noteEl.matricule }}</td>
+                                    <td>{{ noteEl.nom }}</td>
+                                    <td>{{ noteEl.prenom }}</td>
+                                    <td>{{ noteEl.dateNaissance }}</td>
+                                    <td>{{ noteEl.noteCC }}</td>
+                                    <td>{{ noteEl.noteCompo }}</td>
+                                    <td>{{ noteEl.noteSemestre }}</td>
+                                    <!-- <tr >
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td> -->
+                                    <td>
+                                        <div class="dropdown dropright dropdown-link">
+                                            <span type="button" id="dropleftMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                <!-- <i data-feather="more-vertical"></i> -->
+                                                <mat-icon aria-hidden="false" aria-label="Example more vert icon ">more_vert</mat-icon>
+                                            </span>
+                                            <div class="dropdown-menu" aria-labelledby="dropleftMenuButton">
+                                                <ul>
+                                                    <li><a href="#">Voir plus</a></li>
+                                                    <li><a href="#">Modifier</a></li>
+                                                    <li>
+                                                        <a href="#"></a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+
+                        </table>
+                    </div>
+                </div>
+                <!-- END card -->
+            </div>
+
+        </div>
+        <!-- container -->
+
+        <script src="assets/lib/jquery/jquery.min.js"></script>
+        <script src="assets/lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <script src="assets/lib/feather-icons/feather.min.js"></script>
+        <script src="assets/lib/perfect-scrollbar/perfect-scrollbar.min.js"></script>
+        <!-- <script src="../../lib/chart.js/Chart.bundle.min.js"></script>
+        <script src="../../lib/jquery.flot/jquery.flot.js"></script>
+        <script src="../../lib/jquery.flot/jquery.flot.stack.js"></script>
+        <script src="../../lib/jquery.flot/jquery.flot.resize.js"></script> -->
+
+        <script src="assets/js/dashforge.js"></script>
+        <script src="assets/js/dashforge.aside.js"></script>
+        <script src="assets/js/dashforge.sampledata.js"></script>
+        <script src="assets/js/dashboard-two.js"></script>
+        <!-- Table -->
+        <!-- <script src="DataTables/jQuery-1.12.4/jquery-1.12.4.min.js"></script> -->
+        <script type="text/javascript" src="assets/DataTables/DataTables-1.10.24/js/jquery.dataTables.min.js"></script>
+        <script type="text/javascript" src="assets/assets/js/settingsdatable.js"></script>
+        <!-- <script type="text/javascript" src="assets/DataTables/DataTables-1.10.24/js/dataTables.semanticui.min.js"></script> -->
+        <!-- <script type="text/javascript" src="assets/DataTables/SemanticUI-2.2.13/semantic.min.js"> -->
