@@ -20,6 +20,7 @@
                     <div class="d-none d-md-block">
                         <button class="btn btn-sm pd-x-15 btn-white btn-uppercase mg-l-5"><i data-feather="printer" class="wd-10 mg-r-5"></i> Imprimer</button>
                         <button class="btn btn-sm pd-x-15 btn-primary btn-uppercase mg-l-5"><i data-feather="user-plus" class="wd-10 mg-r-5"></i> Inscrire un éléve</button>
+                        <!-- <a href="#modal4" data-toggle="modal" class="btn btn-sm pd-x-15 btn-primary btn-uppercase mg-l-5"><i data-feather="user-plus" class="wd-10 mg-r-5"></i> Inscrire un éléve</a> -->
                     </div>
                 </div>
                 <!-- </div> -->
@@ -111,7 +112,7 @@
                                             </span>
                                             <div class="dropdown-menu" aria-labelledby="dropleftMenuButton">
                                                 <ul>
-                                                    <li><a href="#">Voir plus</a></li>
+                                                    <li><a href="/show-eleve/{{ eleve.id }}">Voir plus</a></li>
                                                     <li><a href="/edit-eleve/{{ eleve.id }}">Modifier</a></li>
                                                     <li>
                                                         <a *ngIf="eleve.etat" (click)="changeStatus(eleve.id)">Desactiver</a>
@@ -136,6 +137,26 @@
 
         </div>
         <!-- container -->
+
+        <div class="modal fade" id="modal4" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel4" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+              <div class="modal-content tx-14">
+                <div class="modal-header">
+                  <h6 class="modal-title" id="exampleModalLabel4">Modal Title</h6>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <p class="mg-b-0">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. </p>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary tx-13" data-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-primary tx-13">Save changes</button>
+                </div>
+              </div>
+            </div>
+          </div>
 
     <script type="text/javascript" src="assets/DataTables/DataTables-1.10.24/js/jquery.dataTables.min.js"></script>
     <script type="text/javascript" src="assets/js/settingsdatable.js"></script>

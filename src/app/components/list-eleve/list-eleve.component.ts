@@ -12,7 +12,6 @@ export class ListEleveComponent implements OnInit {
   constructor(private eleveService: EleveService,  private router: Router) { }
 
   ngOnInit() {
-
     // Liste des eleves 
     this.eleveService.getlistAllEleves().subscribe(
       data => {

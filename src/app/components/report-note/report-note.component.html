@@ -1,0 +1,104 @@
+<app-sidebar></app-sidebar>
+
+<div class="row">
+    <aside class="aside aside">
+        <div class="aside-body"></div>
+    </aside>    
+    <div class="content-body">
+        <!-- Le select pour la semestre -->
+        <div class="">
+            <form [formGroup]="formEvaluation" >
+                <div class="form-row m-3">
+                    <div class="form-group row-md-4">
+                        <label for=""> Choisi une évaluation : &nbsp;</label>
+                        <select formControlName="idEvaluation">
+                            <option *ngFor="let eval of evaluations" value="{{ eval.id }}">{{ eval.libelleEval }} du {{ eval.dateDebut }}</option>
+                        </select>    
+                    </div>
+                    <div class="form-group row-md-4">
+                        <a href="#modal4" data-toggle="modal" (click)="elevesEvatuation(formEvaluation.value.idEvaluation)" 
+                            class="btn btn-sm pd-x-15 btn-white btn-uppercase mg-l-5"><i data-feather="search" class="wd-10 mg-r-5"></i> Rechercher
+                        </a>
+                    </div>
+                    
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+    <div class="modal fade" id="modal4" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel4" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+          <div class="modal-content tx-14">
+            <div class="modal-header">
+              <h6 class="modal-title" id="exampleModalLabel4">Report de notes d'évaluation</h6>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+
+                <!-- TABLEAU-->
+
+                <div class="pd-t-10">
+                    <form [formGroup]="formNoteEleve" >
+                    <table id="tableui" class="ui celled table" style="width:100%">
+                        <thead>
+                            <tr>
+                                <th>N°</th>
+                                <th>Matricule</th>
+                                <th>Prenom</th>
+                                <th>Nom</th>
+                                <th>Email</th>
+                                <th>Fonction</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let eleve of elevesEvals; let i = index">
+                                <td>{{ i+1 }}</td>
+                                <td>{{ eleve.matricule }}</td>
+                                <td>{{ eleve.prenom }}</td>
+                                <td>{{ eleve.nom }}</td>
+                                <td><!-- [id]="group.key" -->
+                                    <input type="text"  formControlName="noteEls[i]" size="2" class="form-control" placeholder="0">
+                                </td>
+                                <td>
+                                    
+                                </td>
+                                <td>
+                                    <div class="dropdown dropright dropdown-link">
+                                        <span type="button" id="dropleftMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <!-- <i data-feather="more-vertical"></i> -->
+                                    <mat-icon aria-hidden="false" aria-label="Example more vert icon ">more_vert</mat-icon>
+                                    </span>
+                                        <div class="dropdown-menu" aria-labelledby="dropleftMenuButton">
+                                            <ul>
+                                                <li><a href="#">Voir plus</a></li>
+                                                <li><a href="#">Modifier</a></li>
+                                                <li>
+                                                    <a href="#"></a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+
+                    </table>
+                    </form>
+                </div>
+            </div>
+
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary tx-13" data-dismiss="modal">Close</button>
+              <button type="submit" (click)="retorterNotes()" class="btn btn-primary tx-13">Save changes</button>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+
+</div>

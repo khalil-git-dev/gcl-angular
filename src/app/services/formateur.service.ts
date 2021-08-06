@@ -12,4 +12,6 @@ export class FormateurService {
   getListeFormateurs() {
     return this.http.get(`${environment.apiUrl}/api/allFormateur`);
   }
+
+  
 }

@@ -21,6 +21,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 // import { ProgressSpinnerOverviewComponent } from './components/progress-spinner-overview/progress-spinner-overview.component';
 import {MatIconModule} from '@angular/material/icon';
 import { ModifEleveComponent } from './components/modif-eleve/modif-eleve.component';
+import { ShowEleveComponent } from './components/show-eleve/show-eleve.component';
+import { ReportNoteComponent } from './components/report-note/report-note.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,6 +38,8 @@ import { ModifEleveComponent } from './components/modif-eleve/modif-eleve.compon
     ListUserComponent,
     ListNoteComponent,
     ModifEleveComponent,
+    ShowEleveComponent,
+    ReportNoteComponent,
   ],
   imports: [
     BrowserModule,

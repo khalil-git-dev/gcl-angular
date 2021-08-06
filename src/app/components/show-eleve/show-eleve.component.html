@@ -1,0 +1,166 @@
+<app-sidebar></app-sidebar>
+
+<div class="row">
+    <aside class="aside aside">
+        <div class="aside-header"></div>
+        <div class="aside-body"></div>
+    </aside>
+<div class="content-body">
+
+    <div class="col-xl-12 col-lg-12 col-md-12">
+        <!-- card-header -->
+        <div class="d-sm-flex align-items-center justify-content-between mg-b-20 mg-lg-b-25 mg-xl-b-30">
+            <div>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb breadcrumb-style1 mg-b-10">
+                        <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Formulaire</li>
+                    </ol>
+                </nav>
+                <h4 class="mg-b-0 tx-spacing--1">Modification d'un élève</h4>
+            </div>
+        </div>
+
+    <div class="row">
+        <div class="col-md-3">
+            <div class="m-3">
+                <img sizes="(max-width: 320px) 280px, (max-width: 480px) 440px,800px" 
+                class="rounded-circle" src="assets/img/prf.jpg" alt="photo eleve" >
+            </div>
+            <div class="mt-3">
+                <div class="d-flex mg-b-25">
+                    <button class="btn btn-xs btn-white flex-fill">Emploi du temps</button>
+                    <button class="btn btn-xs btn-primary flex-fill mg-l-10">Modifier</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-9">
+            
+            <div class="mg-l-40">
+                <form [formGroup]="formUpdateEleve">
+                    <div class="form-row">
+                        <div class="form-group col-md-4">
+                            <label for="inputPassword4">Marticule</label>
+                            <input type="text" readonly="true" formControlName="matricule" [(ngModel)]="currentEleve.matricule" class="form-control" id="inputPassword4">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="inputEmail4">Prénom</label>
+                            <input type="text" readonly="true" formControlName="prenom" [(ngModel)]="currentEleve.prenom" class="form-control" id="inputEmail4">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="inputPassword4">Nom</label>
+                            <input type="text" readonly="true" formControlName="nom" [(ngModel)]="currentEleve.nom" class="form-control" id="inputPassword4">
+                        </div>
+                        
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group col-md-4">
+                            <label for="inputEmail4">Date de naissance</label>
+                            <input type="text" readonly="true" formControlName="dateNaissance" [(ngModel)]="currentEleve.dateNaissance" class="form-control" id="inputEmail4" >
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="inputPassword4">Lieu de naissance</label>
+                            <input type="text" readonly="true" formControlName="lieuNaissance" [(ngModel)]="currentEleve.lieuNaissance" class="form-control" id="inputPassword4" >
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="inputPassword4">Téléphone</label>
+                            <input type="text" readonly="true" formControlName="telEleve" [(ngModel)]="currentEleve.telEleve" class="form-control" id="inputPassword4">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group col-md-4">
+                            <label>Classe</label>
+                            <input type="text" readonly="true" formControlName="classe" [(ngModel)]="currentEleve.classe" class="form-control" id="inputPassword4" >
+                        </div>
+                        
+                        <div class="form-group col-md-4">
+                            <label>Série</label>
+                            <input type="text" readonly="true" formControlName="serie" [(ngModel)]="currentEleve.serie" class="form-control" id="inputPassword4">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label>Niveau</label>
+                            <input type="text" readonly="true" formControlName="serie" [(ngModel)]="currentEleve.niveau" class="form-control" id="inputPassword4" >
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group col-md-4">
+                            <label for="inputEmail4">Nom complet père</label>
+                            <input type="text" readonly="true" formControlName="nomPere" [(ngModel)]="currentEleve.nomPere" class="form-control" id="inputEmail4" >
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="inputPassword4">Nom complet mère</label>
+                            <input type="text" readonly="true" formControlName="nomMere" [(ngModel)]="currentEleve.nomMere" class="form-control" id="inputPassword4" >
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="inputPassword4">Nom complet Tuteur</label>
+                            <input type="text" readonly="true" formControlName="nomTuteur" [(ngModel)]="currentEleve.nomTuteur" class="form-control" id="inputPassword4" >
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group col-md-4">
+                            <label for="inputEmail4">Téléphone père</label>
+                            <input type="text" readonly="true" formControlName="telPere" [(ngModel)]="currentEleve.telPere" class="form-control" id="inputEmail4">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="inputPassword4">Téléphone mère</label>
+                            <input type="text" readonly="true" formControlName="telMere" [(ngModel)]="currentEleve.telMere" class="form-control" id="inputPassword4" >
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="inputPassword4">Téléphone Tuteur</label>
+                            <input type="text" readonly="true" formControlName="telTuteur" [(ngModel)]="currentEleve.telTuteur" class="form-control" id="inputPassword4" >
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-4">
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label for="inputPassword4">Sexe</label>
+                                    <input type="text" readonly="true" formControlName="sexe" [(ngModel)]="currentEleve.sexe" class="form-control" id="inputPassword4" placeholder="Numéro de téléphone">
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="inputPassword4">Status</label>
+                                    <div>
+                                        <span *ngIf="currentEleve.etat" class="badge badge-success">actif</span>
+                                        <span *ngIf="!currentEleve.etat" class="badge badge-danger">inactif</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group col-md-4">
+                            <label>Réligion</label>
+                            <input type="text" readonly="true" formControlName="religion" [(ngModel)]="currentEleve.religion" class="form-control" id="inputPassword4" placeholder="Numéro de téléphone">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label>Nationalité</label>
+                            <input type="text" readonly="true" formControlName="nationalite" [(ngModel)]="currentEleve.nationalite" class="form-control" id="inputPassword4" placeholder="Numéro de téléphone">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-5">
+                            <label for="inputAddress">Détail</label>
+                            <textarea readonly="true" formControlName="detailEl" [(ngModel)]="currentEleve.detailEl" class="form-control" rows="2" placeholder="Textarea"> </textarea>
+                        </div>
+                        <div class="form-group col-md-5">
+                            <label for="inputAddress">Address</label>
+                            <textarea readonly="true" formControlName="adresse" [(ngModel)]="currentEleve.adresse" class="form-control" rows="2" placeholder="Textarea"></textarea>
+                        </div>
+                    </div>
+
+                    <!-- <div class="">
+                        <button type="submit" (click)="upDateEleve(currentEleve.id)" class="btn btn-sm pd-x-15 btn-white btn-uppercase mg-l-5">Modifier</button>
+                        <button type="cancel" class="btn pd-x-15 btn-white btn-uppercase mg-l-5">Annuler</button>
+                    </div> -->
+
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
+</div>
+</div>

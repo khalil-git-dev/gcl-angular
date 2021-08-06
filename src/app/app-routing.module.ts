@@ -1,3 +1,5 @@
+import { ReportNoteComponent } from './components/report-note/report-note.component';
+import { ShowEleveComponent } from './components/show-eleve/show-eleve.component';
 import { ModifEleveComponent } from './components/modif-eleve/modif-eleve.component';
 import { ListNoteComponent } from './components/list-note/list-note.component';
 import { ListClasseComponent } from './components/list-classe/list-classe.component';
@@ -20,7 +22,9 @@ const routes: Routes = [
   { path: 'list-classe', component: ListClasseComponent },
   { path: 'list-user', component: ListUserComponent },
   { path: 'list-note', component: ListNoteComponent },
-
+  { path: 'reportage-note', component: ReportNoteComponent },
+  { path: 'show-eleve/:id', component: ShowEleveComponent },
+  
 ];
 
 @NgModule({
