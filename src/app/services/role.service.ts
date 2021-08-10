@@ -10,9 +10,12 @@ export class RoleService {
 
   constructor(private http: HttpClient) { }
   
-  // getRoles() {
-  //   return this.http.get(`${environment.apiUrl}/api/listRetardCours/4`);
-  // }
+  getRoles() {
+    return this.http.get(`${environment.apiUrl}/api/roles`);
+  }
 
+  getRoleByLibelle(libelle){
+    return this.http.get(`${environment.apiUrl}/api/getRoleByLibelle/`+ libelle);
+  }
 
 }

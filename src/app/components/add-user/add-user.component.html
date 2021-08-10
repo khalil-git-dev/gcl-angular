@@ -1,0 +1,140 @@
+<app-sidebar></app-sidebar>
+
+<div class="row">
+    <aside class="aside aside">
+        <div class="aside-header"></div>
+        <div class="aside-body"></div>
+    </aside>
+<div class="content-body">
+
+    <div class="col-xl-12 col-lg-12 col-md-12">
+        <!-- card-header -->
+        <div class="d-sm-flex align-items-center justify-content-between mg-b-20 mg-lg-b-25 mg-xl-b-30">
+            <div>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb breadcrumb-style1 mg-b-10">
+                        <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Formulaire</li>
+                    </ol>
+                </nav>
+                <h4 class="mg-b-0 tx-spacing--1">Affichage d'un utilisateur</h4>
+            </div>
+        </div>
+
+        <div class="col-md">
+            <div class="mg-l-50">
+                <form [formGroup]="formAddUser">
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="inputEmail4">Prénom</label>
+                            <input type="text"  formControlName="prenom" class="form-control" id="inputEmail4">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="inputPassword4">Nom</label>
+                            <input type="text"  formControlName="nom"class="form-control" id="inputPassword4">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="inputEmail4">Email</label>
+                            <input type="text"  formControlName="email" class="form-control" id="inputEmail4" >
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="inputPassword4">Téléphone</label>
+                            <input type="number"  formControlName="telephone" class="form-control" id="inputPassword4" >
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label>Type utilisateur</label>
+                            <select formControlName="role" class="custom-select">
+                                <ng-container *ngFor="let role of roles" >
+                                    <option value="{{ role.libelle }}" *ngIf="role.libelle != 'USER' && role.libelle != 'PARENT' && role.libelle != 'PROVISEUR' && role.libelle != 'SUP_ADMIN'" >
+                                        {{ role.libelle }}
+                                    </option>
+                                </ng-container>
+                            </select>
+                        </div>
+                        <div *ngIf="formAddUser.value.role == 'FORMATEUR'" class="form-group col-md-6">
+                            <label>Type formateur</label>
+                            <select  formControlName="typeFormateur" class="custom-select">
+                                <option value="VOCATAIRE" > VOCATAIRE </option>
+                                <option value="PES" > PES </option>
+                                <option value="PCEM"> PCEM </option>
+                                <option value="PM" > PM </option>
+                                <option value="PEPS" > PEPS </option>
+                                <option value="PC" > PC </option>
+                                <option value="BIVALANT" > BIVALANT </option>
+                                <option value="MEPS" > MEPS </option>
+                                <option value="PEM" > PEM </option>
+                            </select>
+                        </div>
+                    </div>
+                    <div *ngIf="formAddUser.value.role == 'CENSEUR'" class="form-group col-md-6">
+                        <label for="inputEmail4">Adresse</label>
+                        <textarea formControlName="adresse" class="form-control" rows="2" placeholder="Textarea"></textarea>
+                        <!-- <input type="text"  formControlName="matieres" class="form-control" id="inputEmail4" > -->
+                    </div>
+
+                    <div *ngIf="formAddUser.value.role == 'FORMATEUR'" class="form-row">
+                        <div class="form-group col-md-10">
+                            <label for="inputEmail4">Matières enseignés</label>
+                            <input type="text" formControlName="matieres" class="form-control" data-role="tagsinput">
+                            <!-- <input type="text"  formControlName="matieres" class="form-control" id="inputEmail4" > -->
+                        </div>
+                        <!-- <div class="form-group col-md-6">  
+                            <label for="inputPassword4">Email de connexion</label>
+                            <input type="text"  formControlName="telephone" class="form-control" id="inputPassword4" >
+                        </div> -->
+                    </div>
+                    <div *ngIf="formAddUser.value.role == 'AGENT-SOINS'" class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="inputEmail4">Type agent</label>
+                            <input type="text" formControlName="typeAgent" class="form-control" data-role="tagsinput">
+                            <!-- <input type="text"  formControlName="matieres" class="form-control" id="inputEmail4" > -->
+                        </div>
+                        <div class="form-group col-md-6">  
+                            <label for="inputPassword4">Service</label>
+                            <input type="text"  formControlName="service" class="form-control" id="inputPassword4" >
+                        </div>
+                    </div>
+
+                    <div class="">
+                        <button type="submit" (click)="AjoutUser()" class="btn btn-sm pd-x-15 btn-white btn-uppercase mg-l-5">Ajouter</button>
+                        <button type="cancel" class="btn pd-x-15 btn-white btn-uppercase mg-l-5">Annuler</button>
+                    </div>
+
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
+</div>
+
+<script>
+    var citynames = new Bloodhound({
+        datumTokenizer: Bloodhound.tokenizers.obj.whitespace('name'),
+        queryTokenizer: Bloodhound.tokenizers.whitespace,
+        prefetch: {
+            url: '../assets/data/citynames.json',
+            filter: function(list) {
+            return $.map(list, function(cityname) {
+                return { name: cityname }; });
+            }
+        }
+    });
+
+    citynames.initialize();
+
+    $('#input2').tagsinput({
+        typeaheadjs: {
+            name: 'citynames',
+            displayKey: 'name',
+            valueKey: 'name',
+            source: citynames.ttAdapter()
+        }
+    });
+</script>

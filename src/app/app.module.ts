@@ -23,6 +23,12 @@ import {MatIconModule} from '@angular/material/icon';
 import { ModifEleveComponent } from './components/modif-eleve/modif-eleve.component';
 import { ShowEleveComponent } from './components/show-eleve/show-eleve.component';
 import { ReportNoteComponent } from './components/report-note/report-note.component';
+import { ShowUserComponent } from './components/show-user/show-user.component';
+import { AddUserComponent } from './components/add-user/add-user.component';
+import { ModifUserComponent } from './components/modif-user/modif-user.component';
+import { RegistreCoursComponent } from './components/registre-cours/registre-cours.component';
+import { ListCoursComponent } from './components/list-cours/list-cours.component';
+import { DetailCoursComponent } from './components/detail-cours/detail-cours.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -40,6 +46,12 @@ import { ReportNoteComponent } from './components/report-note/report-note.compon
     ModifEleveComponent,
     ShowEleveComponent,
     ReportNoteComponent,
+    ShowUserComponent,
+    AddUserComponent,
+    ModifUserComponent,
+    RegistreCoursComponent,
+    ListCoursComponent,
+    DetailCoursComponent,
   ],
   imports: [
     BrowserModule,

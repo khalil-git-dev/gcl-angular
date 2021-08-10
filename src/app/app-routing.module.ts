@@ -10,20 +10,33 @@ import { ConnexionComponent } from './pages/connexion/connexion.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { ListUserComponent } from './components/list-user/list-user.component';
+import { ShowUserComponent } from './components/show-user/show-user.component';
+import { AddUserComponent } from './components/add-user/add-user.component';
+import { AuthGuard } from './helpers/auth.guard';
+import { ModifUserComponent } from './components/modif-user/modif-user.component';
 
 
 const routes: Routes = [
-  { path: '', component: ConnexionComponent },
-  { path: 'login', component: ConnexionComponent },
-  { path: 'dashboard', component: DashboardComponent },
-  { path: 'list-eleve', component: ListEleveComponent },
-  { path: 'edit-eleve/:id', component: ModifEleveComponent },
-  { path: 'detail-classe', component: DetailClasseComponent },
-  { path: 'list-classe', component: ListClasseComponent },
-  { path: 'list-user', component: ListUserComponent },
-  { path: 'list-note', component: ListNoteComponent },
-  { path: 'reportage-note', component: ReportNoteComponent },
-  { path: 'show-eleve/:id', component: ShowEleveComponent },
+  { path: 'login', component: ConnexionComponent},
+  // {
+    // path: '', component: DashboardComponent ,
+    // children: [
+      // { path: 'login', component: ConnexionComponent },
+      { path: 'dashboard', component: DashboardComponent,  },
+      { path: 'list-eleve', component: ListEleveComponent, canActivate: [AuthGuard] },
+      { path: 'edit-eleve/:id', component: ModifEleveComponent },
+      { path: 'edit-user/:id', component: ModifUserComponent },
+      { path: 'detail-classe', component: DetailClasseComponent },
+      { path: 'list-classe', component: ListClasseComponent },
+      { path: 'list-user', component: ListUserComponent },
+      { path: 'list-note', component: ListNoteComponent },
+      { path: 'reportage-note', component: ReportNoteComponent },
+      { path: 'show-eleve/:id', component: ShowEleveComponent },
+      { path: 'show-user/:id', component: ShowUserComponent },
+      { path: 'add-user', component: AddUserComponent },
+      
+      // ] 
+  // },
   
 ];
 

@@ -9,7 +9,7 @@
   <aside class="aside aside-fixed">
     <div class="aside-header">
         <div class="aside-logo">
-            <a href="#"><img class="logo" src="assets/img/logo.png" alt=""></a>
+            <a [routerLink]="['/dashboard']"><img class="logo" src="assets/img/logo.png" alt=""></a>
         </div>
         <!-- <a href="" class="aside-menu-link">
             <i data-feather="menu"></i>
@@ -19,9 +19,10 @@
     <div class="aside-body">
         <ul class="nav nav-aside">
             <!-- <li class="nav-label">Menu</li> -->
-            <li class="nav-item"><a href="#" class="nav-link"><i data-feather="home"></i> <span>Accueil</span></a></li>
+            <li class="nav-item"><a [routerLink]="['/dashboard']" class="nav-link"><i data-feather="home"></i> <span>Accueil</span></a></li>
             <li class="nav-label mg-t-25">La Gestion</li>
             <li class="nav-item active"><a [routerLink]="['/list-classe']" routerLinkActive="router-link-active" class="nav-link"><i data-feather="file-text"></i> <span>Gestion des classes</span></a></li>
+            <li class="nav-item "><a [routerLink]="['/list-user']" routerLinkActive="router-link-active" class="nav-link"><i data-feather="file-text"></i> <span>Gestion des utilisateurs</span></a></li>
             <li class="nav-item with-sub">
                 <a class="nav-link"><i data-feather="user"></i> <span>Eleves </span></a>
                 <ul>
@@ -171,13 +172,15 @@
                     <h6 class="tx-semibold mg-b-5">Souleymane KA</h6>
                     <p class="mg-b-25 tx-12 tx-color-03">Administrateur</p>
 
-                    <a href="" class="dropdown-item"><i data-feather="edit-3"></i> Modifier Profile</a>
-                    <a href="page-profile-view.html" class="dropdown-item"><i data-feather="user"></i> Voir Profile</a>
+                    <a class="dropdown-item"><i data-feather="edit-3"></i> Modifier Profile</a>
+                    <a class="dropdown-item"><i data-feather="user"></i> Voir Profile</a>
                     <div class="dropdown-divider"></div>
-                    <a href="page-help-center.html" class="dropdown-item"><i data-feather="help-circle"></i> Centre d'aide</a>
+                    <!-- <a href="page-help-center.html" class="dropdown-item"><i data-feather="help-circle"></i> Centre d'aide</a>
                     <a href="" class="dropdown-item"><i data-feather="life-buoy"></i> Forum</a>
-                    <a href="" class="dropdown-item"><i data-feather="settings"></i>Paramètres compte</a>
-                    <a href="page-signin.html" class="dropdown-item"><i data-feather="log-out"></i>Deconnection</a>
+                    <a href="" class="dropdown-item"><i data-feather="settings"></i>Paramètres compte</a> -->
+                    <button class="dropdown-item" type="submit" (click)="deconnexion()">
+                        <i data-feather="log-out"></i>Deconnection <!--<mat-icon class="mat-18">move_to_index</mat-icon>-->
+                    </button>
                 </div>
                 <!-- dropdown-menu -->
             </div>
@@ -256,7 +259,7 @@
 
                                 </ul>
                                 <div class="card-footer text-center tx-13">
-                                    <a href="" class="link-03">Voir plus <i class="icon ion-md-arrow-down mg-l-5"></i></a>
+                                    <a [routerLink]="['/list-classe']" class="link-03">Voir plus <i class="icon ion-md-arrow-down mg-l-5"></i></a>
                                 </div>
                                 <!-- card-footer -->
                             </div>

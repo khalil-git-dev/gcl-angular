@@ -116,6 +116,8 @@ export class ModifEleveComponent implements OnInit {
 
   }
   
-
+  changeGender(e) {
+    console.log(e.target.value);
+  }
 
 }

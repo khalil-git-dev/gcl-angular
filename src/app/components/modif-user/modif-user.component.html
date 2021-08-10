@@ -1,0 +1,101 @@
+<app-sidebar></app-sidebar>
+
+<div class="row">
+    <aside class="aside aside">
+        <div class="aside-header"></div>
+        <div class="aside-body"></div>
+    </aside>
+<div class="content-body">
+
+    <div class="col-xl-12 col-lg-12 col-md-12">
+        <!-- card-header -->
+        <div class="d-sm-flex align-items-center justify-content-between mg-b-20 mg-lg-b-25 mg-xl-b-30">
+            <div>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb breadcrumb-style1 mg-b-10">
+                        <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Formulaire</li>
+                    </ol>
+                </nav>
+                <h4 class="mg-b-0 tx-spacing--1">Affichage d'un utilisateur</h4>
+            </div>
+        </div>
+
+        <div class="col-md">
+            <div class="mg-l-50">
+                <form [formGroup]="formUpdateUser">
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="inputEmail4">Prénom</label>
+                            <input type="text" formControlName="prenom" [(ngModel)]="currentUser.prenom" class="form-control" id="inputEmail4">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="inputPassword4">Nom</label>
+                            <input type="text" formControlName="nom" [(ngModel)]="currentUser.nom" class="form-control" id="inputPassword4">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="inputEmail4">Adresse email</label>
+                            <input type="text" formControlName="email" [(ngModel)]="currentUser.email" class="form-control" id="inputEmail4" >
+                        </div>
+                        <div *ngIf="currentUser.type != 'Surveillent' && currentUser.type != 'Surveillent-general' " class="form-group col-md-6">
+                            <label for="inputPassword4">Telephone</label>
+                            <input type="text" formControlName="telephone" [(ngModel)]="currentUser.telephone" class="form-control" id="inputPassword4" >
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label>Type utilisateur</label>
+                            <input type="text" formControlName="type" [(ngModel)]="currentUser.type" class="form-control" id="inputPassword4">
+                        </div>
+                        <!-- <div class="form-group col-md-6">
+                            <label>Niveau</label>
+                            <input type="text"   class="form-control" id="inputPassword4" >
+                        </div> -->
+                    </div>
+                    <div *ngIf="currentUser.type == 'Censeur'" class="form-group col-md-6">
+                        <label for="inputEmail4">Adresse</label>
+                        <textarea formControlName="adresse" [(ngModel)]="currentUser.adresse" class="form-control" rows="2" placeholder="Textarea"></textarea>
+                        <!-- <input type="text"  formControlName="matieres" class="form-control" id="inputEmail4" > -->
+                    </div>
+
+                    <div *ngIf="currentUser.type == 'Formateur'" class="form-row">
+                        <div class="form-group col-md-6">  
+                            <label for="inputPassword4">Type formateur</label>
+                            <input type="text"  formControlName="typeFor" [(ngModel)]="currentUser.typeFor" class="form-control" id="inputPassword4" >
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="inputEmail4">Matières enseignés</label>
+                            <input type="text" formControlName="matieres" [(ngModel)]="currentUser.matieres" class="form-control" data-role="tagsinput">
+                            <!-- <input type="text"  formControlName="matieres" class="form-control" id="inputEmail4" > -->
+                        </div>
+                        
+                    </div>
+                    <div *ngIf="currentUser.type == 'Agent-soins'" class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="inputEmail4">Type agent</label>
+                            <input type="text" formControlName="typeAgent" [(ngModel)]="currentUser.typeAgent" class="form-control" data-role="tagsinput">
+                            <!-- <input type="text"  formControlName="matieres" class="form-control" id="inputEmail4" > -->
+                        </div>
+                        <div class="form-group col-md-6">  
+                            <label for="inputPassword4">Service</label>
+                            <input type="text"  formControlName="service" [(ngModel)]="currentUser.service" class="form-control" id="inputPassword4" >
+                        </div>
+                    </div>
+
+
+                    <div class="">
+                        <button type="submit" (click)="upDateUser()" class="btn btn-sm pd-x-15 btn-white btn-uppercase mg-l-5">Modifier</button>
+                        <button type="cancel" class="btn pd-x-15 btn-white btn-uppercase mg-l-5">Annuler</button>
+                    </div>
+
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
+</div>

@@ -1,3 +1,4 @@
+import { AuthService } from 'src/app/services/auth.service';
 import { EvenmentService } from './../../services/evenment.service';
 import { FormateurService } from './../../services/formateur.service';
 import { ClasseService } from './../../services/classe.service';
@@ -17,7 +18,7 @@ export class DashboardComponent implements OnInit {
   jourHeure: any; dateJour: any;
 
   constructor(private formateurService: FormateurService, private classService: ClasseService,
-    private coursService: CoursService, private eventService: EvenmentService) { }
+    private coursService: CoursService, private eventService: EvenmentService, private authService: AuthService) { }
 
   ngOnInit() {
       // Informations calendrier
@@ -74,6 +75,10 @@ export class DashboardComponent implements OnInit {
 
   }
 
+  deconnexion() {
+    this.authService.logOut();
+
+  }
 
 
 }
